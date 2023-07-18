@@ -16,6 +16,4 @@ export class AppComponent {
 	constructor() {
 		console.log('APP running in mode ==>', environment.name);
 	}
-
-	ngOnInit() {}
 }
