@@ -1,0 +1,23 @@
+# Ignore built files
+/dist/
+/dist-server/
+
+# Ignore node_modules directory
+/node_modules/
+
+# Ignore configuration files
+.angular.json
+.nx.json
+.npmrc
+.prettierignore
+.prettierrc
+.tsconfig.json
+yarn.lock
+
+# Ignore specific files or directories
+/coverage/
+/jest.config.js
+/karma.conf.js
+/.eslintrc.js
+src/*.ts
+src/index.html

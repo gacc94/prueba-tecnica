@@ -66,10 +66,10 @@
                             "sourceMap": true,
                             "namedChunks": true,
                             "fileReplacements": [
-                              {
-                                "replace": "src/environments/environment.ts",
-                                "with": "src/environments/environment.dev.ts"
-                              }
+                                {
+                                    "replace": "src/environments/environment.ts",
+                                    "with": "src/environments/environment.dev.ts"
+                                }
                             ]
                         }
                     },
@@ -111,11 +111,23 @@
                         ],
                         "scripts": []
                     }
+                },
+                "lint": {
+                    "builder": "@angular-eslint/builder:lint",
+                    "options": {
+                        "lintFilePatterns": [
+                            "src/**/*.ts",
+                            "src/**/*.html"
+                        ]
+                    }
                 }
             }
         }
     },
     "cli": {
-      "analytics": "f5f392db-e2ca-4a0b-8d85-d30db08efbae"
+        "analytics": "f5f392db-e2ca-4a0b-8d85-d30db08efbae",
+        "schematicCollections": [
+            "@angular-eslint/schematics"
+        ]
     }
 }
