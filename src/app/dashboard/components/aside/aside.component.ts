@@ -17,7 +17,8 @@ import { TokenService } from '@shared/services/token.service';
 export class AsideComponent {
 	private readonly router = inject(Router);
 	private readonly tokenService = inject(TokenService);
-	goToAuth(): void {
+	goToAuth(evt: Event): void {
+		console.log(evt);
 		this.router.navigate([RoutesUtils.AUTH]).then((res) => {
 			console.log(res);
 			this.tokenService.removeToken();
