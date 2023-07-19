@@ -1,0 +1,32 @@
+@use 'config/mixin' as mixin;
+
+.container {
+	height: 100vh;
+	@include mixin.flex(flex, row, nowrap, center, center, 1rem);
+}
+
+.form-container {
+	max-width: 90%;
+	width: 25rem;
+	padding: 1.5rem;
+	border-radius: 0.35rem;
+	box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
+	overflow: hidden;
+	background-color: var(--text-color);
+
+	//form {
+	//    border: 1px solid red;
+	//    @apply text-red-500
+	//}
+}
+
+button {
+	width: 100%;
+	padding: 1.25rem;
+	margin-bottom: 0.675rem;
+	border-radius: 1.8rem;
+}
+
+mat-form-field {
+	width: 100%;
+}

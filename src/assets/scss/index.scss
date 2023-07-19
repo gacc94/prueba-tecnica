@@ -1,3 +1,2 @@
-body {
-	background-color: #ccc !important;
-}
+@use 'config/variables';
+@use 'base/base';

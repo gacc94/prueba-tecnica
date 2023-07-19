@@ -1,1 +1,40 @@
-<p>sign-in works!</p>
+<div class="container">
+	<div class="form-container">
+		<h1>{{ 'Sign-in' | titlecase }}</h1>
+		<form [formGroup]="form" (ngSubmit)="onSubmit()" autocomplete="off">
+			<div>
+				<mat-form-field appearance="outline">
+					<mat-label>Email</mat-label>
+					<input
+						matInput
+						formControlName="email"
+						placeholder="Ingrese su email"
+						type="email"
+						value="gustavocaqui94@gmail.com"
+					/>
+					<mat-icon matSuffix fontIcon="user" />
+					<mat-error *ngIf="hasError('email')">{{ errorMessage('email') }}</mat-error>
+				</mat-form-field>
+			</div>
+			<div>
+				<mat-form-field appearance="outline">
+					<mat-label>Contraseña</mat-label>
+					<input
+						matInput
+						formControlName="password"
+						placeholder="Ingrese su contraseña"
+						type="password"
+						value="123456789"
+					/>
+					<mat-icon matSuffix fontIcon="key" />
+					<mat-error *ngIf="hasError('password')">{{ errorMessage('password') }}</mat-error>
+				</mat-form-field>
+			</div>
+			<div>
+				<button mat-raised-button color="primary" type="submit">
+					{{ 'Sign-in' | titlecase }}
+				</button>
+			</div>
+		</form>
+	</div>
+</div>
