@@ -1,4 +1,4 @@
-/* MIXIN PARA FLEXBOX*/
+/*=============== Flexbox ===============*/
 @mixin flex($dis, $direction, $corte, $just, $align, $gap) {
 	display: $dis;
 	flex-flow: $direction $corte;
@@ -7,7 +7,7 @@
 	gap: $gap;
 }
 
-/* MIXIN PARA GRID*/
+/**=============== Grid ===============*/
 
 @mixin grid($columnas, $espacio) {
 	display: grid;
