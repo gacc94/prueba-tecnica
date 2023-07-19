@@ -3,6 +3,7 @@
 .container {
 	height: 100vh;
 	@include mixin.flex(flex, row, nowrap, center, center, 1rem);
+	background-color: var(--text-color);
 }
 
 .form-container {
@@ -12,14 +13,15 @@
 	border-radius: 0.35rem;
 	box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
 	overflow: hidden;
-	background-color: var(--text-color);
-
-	//form {
-	//    border: 1px solid red;
-	//    @apply text-red-500
-	//}
+	background-color: var(--title-color);
+	@include mixin.flex(flex, column, nowrap, start, start, 2rem);
 }
-
+.form-title {
+	color: var(--container-color);
+}
+form {
+	width: 100%;
+}
 button {
 	width: 100%;
 	padding: 1.25rem;

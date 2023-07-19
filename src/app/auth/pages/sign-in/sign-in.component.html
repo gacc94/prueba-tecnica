@@ -1,6 +1,6 @@
 <div class="container">
 	<div class="form-container">
-		<h1>{{ 'Sign-in' | titlecase }}</h1>
+		<h1 class="form-title">{{ 'Sign-in' | titlecase }}</h1>
 		<form [formGroup]="form" (ngSubmit)="onSubmit()" autocomplete="off">
 			<div>
 				<mat-form-field appearance="outline">
@@ -12,7 +12,7 @@
 						type="email"
 						value="gustavocaqui94@gmail.com"
 					/>
-					<mat-icon matSuffix fontIcon="user" />
+					<mat-icon matSuffix fontIcon="person" />
 					<mat-error *ngIf="hasError('email')">{{ errorMessage('email') }}</mat-error>
 				</mat-form-field>
 			</div>
@@ -23,10 +23,19 @@
 						matInput
 						formControlName="password"
 						placeholder="Ingrese su contraseña"
-						type="password"
+						[type]="hide ? 'password' : 'text'"
 						value="123456789"
 					/>
-					<mat-icon matSuffix fontIcon="key" />
+					<button
+						type="button"
+						mat-icon-button
+						matSuffix
+						(click)="hide = !hide"
+						[attr.aria-label]="'Hide password'"
+						[attr.aria-pressed]="hide"
+					>
+						<mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+					</button>
 					<mat-error *ngIf="hasError('password')">{{ errorMessage('password') }}</mat-error>
 				</mat-form-field>
 			</div>

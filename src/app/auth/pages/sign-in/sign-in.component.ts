@@ -28,7 +28,7 @@ import { ConstantsUtil } from '../../../utils/library/constants.util';
 export class SignInComponent implements OnInit {
 	form!: FormGroup;
 	constructor(private readonly fb: FormBuilder) {}
-
+	hide = true;
 	ngOnInit(): void {
 		this.form = this.fb.group({
 			email: ['', [Validators.required, Validators.pattern(ConstantsUtil.PATTERN_EMAIL)]],
@@ -36,7 +36,7 @@ export class SignInComponent implements OnInit {
 		});
 	}
 	onSubmit(): void {
-		console.log('');
+		console.log(this.form.value);
 	}
 	errorMessage(field: string): string {
 		const control: AbstractControl = this.form.controls[field];
@@ -45,6 +45,8 @@ export class SignInComponent implements OnInit {
 			msg = ConstantsUtil.REQUIRED;
 		} else if (control.hasError('minlength')) {
 			msg = ConstantsUtil.MIN_LENGTH;
+		} else if (control.hasError('pattern')) {
+			msg = ConstantsUtil.EMAIL;
 		}
 		return msg;
 	}
