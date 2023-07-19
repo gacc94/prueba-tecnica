@@ -1,13 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { ConstantsUtil } from '../../../utils/library/constants.util';
+import { ConstantsUtil } from '@utils/library/constants.util';
+import { AuthService } from '@shared/services/auth.service';
+import { RoutesUtils } from '@utils/library/routes.util';
 
 @Component({
 	selector: 'gac-sign-in',
@@ -26,18 +28,34 @@ import { ConstantsUtil } from '../../../utils/library/constants.util';
 	styleUrls: ['./sign-in.component.scss']
 })
 export class SignInComponent implements OnInit {
+	private readonly fb: FormBuilder = inject(FormBuilder);
+	private readonly authService: AuthService = inject(AuthService);
+	private readonly router: Router = inject(Router);
 	form!: FormGroup;
-	constructor(private readonly fb: FormBuilder) {}
 	hide = true;
+
 	ngOnInit(): void {
 		this.form = this.fb.group({
 			email: ['', [Validators.required, Validators.pattern(ConstantsUtil.PATTERN_EMAIL)]],
 			password: ['', [Validators.required, Validators.minLength(5)]]
 		});
 	}
+
 	onSubmit(): void {
-		console.log(this.form.value);
+		if (!this.form.valid) {
+			this.form.markAllAsTouched();
+			return;
+		}
+		const { email, password } = this.form.value;
+		this.authService.signIn(email, password).subscribe({
+			next: (value) => {
+				if (value) {
+					this.router.navigate([RoutesUtils.DASHBOARD]).then();
+				}
+			}
+		});
 	}
+
 	errorMessage(field: string): string {
 		const control: AbstractControl = this.form.controls[field];
 		let msg = '';
@@ -50,6 +68,7 @@ export class SignInComponent implements OnInit {
 		}
 		return msg;
 	}
+
 	hasError(field: string): boolean {
 		const control: AbstractControl = this.form.controls[field];
 		return (control.touched || control.dirty) && !control.valid;

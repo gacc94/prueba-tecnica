@@ -16,5 +16,10 @@ export const authRoutes: Routes = [
 				pathMatch: 'full'
 			}
 		]
+	},
+	{
+		path: '**',
+		redirectTo: '',
+		pathMatch: 'full'
 	}
 ];
