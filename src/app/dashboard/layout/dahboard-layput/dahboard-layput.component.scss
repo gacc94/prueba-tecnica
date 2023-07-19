@@ -1,0 +1,27 @@
+@use 'config/mixin' as mixin;
+.container {
+	padding: 1.5rem;
+	min-height: 100vh;
+}
+.sidenav-container {
+	height: 100%;
+}
+
+.sidenav {
+	width: 13.75rem;
+	//background-color: #673AB7
+}
+
+.sidenav .mat-toolbar {
+	background: inherit;
+}
+
+mat-toolbar {
+	position: sticky;
+	top: 0;
+	z-index: 5;
+	@include mixin.flex(flex, row, nowrap, space-between, center, 1rem);
+}
+.toolbar-toggle {
+	@include mixin.flex(flex, row, nowrap, start, center, 0);
+}

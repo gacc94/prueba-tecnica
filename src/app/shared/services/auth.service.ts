@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { catchError, from, Observable, tap, throwError } from 'rxjs';
+import { catchError, Observable, tap, throwError } from 'rxjs';
 import { environment } from '@environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { TokenService } from '@shared/services/token.service';
@@ -18,7 +18,8 @@ export class AuthService {
 		return this.http.post<IAuth>(`${this.URL}/login`, body).pipe(
 			tap(({ access_token }: IAuth) => {
 				this.tokenService.saveToken(access_token);
-			})
+			}),
+			catchError(this.handleError)
 		);
 	}
 

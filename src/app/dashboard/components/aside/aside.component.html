@@ -1,0 +1,33 @@
+<aside class="aside">
+	<div class="aside-avatar-container">
+		<img src="assets/images/foto.png" alt="" class="aside-avatar mat-elevation-z20" />
+	</div>
+	<mat-divider></mat-divider>
+
+	<a mat-button class="aside-button" routerLink="{{ RoutesUtils.DASH_HOME }}" routerLinkActive="active">
+		<mat-icon fontIcon="home"></mat-icon>
+		<span> Home</span>
+	</a>
+	<a mat-button class="aside-button">
+		<mat-icon fontIcon="dashboard"></mat-icon>
+		<span> Dashboard</span>
+	</a>
+	<a mat-button class="aside-button" routerLink="{{ RoutesUtils.DASH_COUNTRIES }}" routerLinkActive="active">
+		<mat-icon fontIcon="flag"></mat-icon>
+		<span> Countries</span>
+	</a>
+	<a mat-button class="aside-button">
+		<mat-icon fontIcon="open_in_new"></mat-icon>
+		<span> Salir</span>
+	</a>
+
+	<!--	<mat-list>-->
+	<!--		<mat-divider></mat-divider>-->
+	<!--		<div mat-subheader>Notes</div>-->
+	<!--		<mat-list-item *ngFor="let note of notes">-->
+	<!--			<mat-icon matListItemIcon>note</mat-icon>-->
+	<!--			<div matListItemTitle>{{ note.name }}</div>-->
+	<!--			<div matListItemLine>{{ note.updated | date }}</div>-->
+	<!--		</mat-list-item>-->
+	<!--	</mat-list>-->
+</aside>

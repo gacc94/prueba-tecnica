@@ -1,0 +1,41 @@
+.aside {
+	padding: 1.25rem;
+	width: 230px;
+	&-avatar {
+		border-radius: 50%;
+		object-fit: cover;
+		width: 8rem;
+		height: 8rem;
+		&-container {
+			padding: 0 1rem 1rem 1rem;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+	}
+	&-button {
+		width: 100%;
+		padding: 1.75rem 0.5rem;
+		font-size: 1rem;
+		font-weight: 400;
+
+		display: flex;
+		justify-content: start;
+		align-items: center;
+		gap: 1rem;
+		color: #767272 !important;
+
+		& > mat-icon {
+			font-size: 1.25rem;
+			width: auto;
+		}
+	}
+}
+mat-divider {
+	margin-block: 1rem;
+	background-color: rgba(255, 255, 255, 0.8);
+}
+.active {
+	color: #fff !important;
+	background-color: #3f51b5;
+}

@@ -10,5 +10,6 @@ export const environment = {
 	name: 'development',
 	production: false,
 	firebase: firebaseConfig,
-	apiUrl: 'https://fake-trello-api.herokuapp.com/api/v1'
+	apiUrl: 'https://fake-trello-api.herokuapp.com/api/v1',
+	apiUrlRestCountry: 'https://restcountries.com/v3.1'
 };

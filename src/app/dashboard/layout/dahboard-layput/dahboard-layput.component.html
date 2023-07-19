@@ -1,1 +1,42 @@
-<router-outlet />
+<mat-sidenav-container class="sidenav-container">
+	<!--                       [ngClass]="{-->
+	<!--                       'dark-theme' : isDarkTheme,-->
+	<!--                       'light-theme' : !isDarkTheme}">-->
+	<mat-sidenav
+		#drawer
+		class="sidenav mat-elevation-z20"
+		fixedInViewport
+		[attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+		[mode]="(isHandset$ | async) ? 'over' : 'side'"
+		[opened]="!(isHandset$ | async)"
+	>
+		<gac-aside></gac-aside>
+	</mat-sidenav>
+	<mat-sidenav-content>
+		<mat-toolbar color="primary">
+			<div class="toolbar-toggle">
+				<button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+					<mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+				</button>
+				<span>Dashboard</span>
+			</div>
+
+			<!--			<mat-slide-toggle-->
+			<!--				class="example-margin"-->
+			<!--				color="accent"-->
+			<!--				checked="true"-->
+			<!--				disabled="false"-->
+			<!--				[(ngModel)]="isDarkTheme"-->
+			<!--				(click)="onSwitchTheme($event)"-->
+			<!--			>-->
+			<!--				<span>-->
+			<!--					<mat-icon fontIcon="light_mode"></mat-icon>-->
+			<!--					&lt;!&ndash;                    {{ isDarkTheme }}&ndash;&gt;-->
+			<!--				</span>-->
+			<!--			</mat-slide-toggle>-->
+		</mat-toolbar>
+		<div class="container">
+			<router-outlet></router-outlet>
+		</div>
+	</mat-sidenav-content>
+</mat-sidenav-container>
