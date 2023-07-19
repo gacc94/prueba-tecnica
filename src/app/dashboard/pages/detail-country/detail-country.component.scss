@@ -1,0 +1,16 @@
+.details {
+	display: grid;
+	gap: 2rem;
+	&-title {
+		color: var(--container-color);
+	}
+}
+figure {
+	border-radius: 0.5rem;
+	overflow: hidden;
+}
+img {
+	max-width: 100%;
+	width: 100%;
+	display: block;
+}

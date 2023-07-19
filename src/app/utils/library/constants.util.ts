@@ -1,6 +1,5 @@
 export abstract class ConstantsUtil {
 	static readonly SIGN_IN: string = 'sign-in';
-	static readonly SIGN_UP: string = 'sign-up';
 
 	/*
 	 * ========================================

@@ -5,6 +5,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { RoutesUtils } from '@utils/library/routes.util';
+import { TokenService } from '@shared/services/token.service';
 
 @Component({
 	selector: 'gac-aside',
@@ -15,22 +16,12 @@ import { RoutesUtils } from '@utils/library/routes.util';
 })
 export class AsideComponent {
 	private readonly router = inject(Router);
-	notes: any[] = [
-		{
-			name: 'Vacation Itinerary',
-			updated: new Date('2/20/16')
-		},
-		{
-			name: 'Kitchen Remodel',
-			updated: new Date('1/18/16')
-		}
-	];
-	goToHome(evt: Event): void {
-		this.router.navigate([RoutesUtils.DASH_HOME]).then();
+	private readonly tokenService = inject(TokenService);
+	goToAuth(): void {
+		this.router.navigate([RoutesUtils.AUTH]).then((res) => {
+			console.log(res);
+			this.tokenService.removeToken();
+		});
 	}
-	goToCountries(): string {
-		return RoutesUtils.DASH_COUNTRIES;
-	}
-
 	protected readonly RoutesUtils = RoutesUtils;
 }

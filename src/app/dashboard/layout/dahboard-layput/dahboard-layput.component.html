@@ -8,13 +8,13 @@
 		fixedInViewport
 		[attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
 		[mode]="(isHandset$ | async) ? 'over' : 'side'"
-		[opened]="!(isHandset$ | async)"
+		[opened]="(isHandset$ | async) === false"
 	>
 		<gac-aside></gac-aside>
 	</mat-sidenav>
 	<mat-sidenav-content>
-		<mat-toolbar color="primary">
-			<div class="toolbar-toggle">
+		<mat-toolbar color="primary" class="toolbar-toggle mat-elevation-z20">
+			<div>
 				<button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
 					<mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
 				</button>

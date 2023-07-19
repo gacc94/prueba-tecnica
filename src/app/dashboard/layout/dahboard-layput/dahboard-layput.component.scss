@@ -1,7 +1,8 @@
 @use 'config/mixin' as mixin;
 .container {
+	margin-top: 64px;
 	padding: 1.5rem;
-	min-height: 100vh;
+	min-height: calc(100vh - 64px);
 }
 .sidenav-container {
 	height: 100%;
@@ -23,5 +24,6 @@ mat-toolbar {
 	@include mixin.flex(flex, row, nowrap, space-between, center, 1rem);
 }
 .toolbar-toggle {
+	position: fixed;
 	@include mixin.flex(flex, row, nowrap, start, center, 0);
 }
