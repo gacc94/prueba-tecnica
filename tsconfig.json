@@ -27,7 +27,7 @@
             "@shared*": ["src/app/shared*"],
             "@utils*": ["src/app/utils*"],
             "@core*": ["src/app/core*"],
-            "@environments*": ["src/environments*"],
+            "@environments/*": ["src/environments/*"],
             "@services*": ["src/app/shared/services"],
             "@models*": ["src/app/shared/models"]
 
