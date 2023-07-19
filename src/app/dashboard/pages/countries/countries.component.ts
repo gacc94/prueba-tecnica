@@ -6,11 +6,12 @@ import { ICountry } from '@shared/models/country.model';
 import { MatCardModule } from '@angular/material/card';
 import { RoutesUtils } from '@utils/library/routes.util';
 import { MatButtonModule } from '@angular/material/button';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
 	selector: 'gac-countries',
 	standalone: true,
-	imports: [CommonModule, MatCardModule, MatButtonModule],
+	imports: [CommonModule, MatCardModule, MatButtonModule, MatProgressSpinnerModule],
 	templateUrl: './countries.component.html',
 	styleUrls: ['./countries.component.scss']
 })
