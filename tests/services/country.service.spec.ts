@@ -22,7 +22,7 @@ describe('CountryService', () => {
 		httpMock.verify();
 	});
 
-	it('should get list of countries', () => {
+	test('should get list of countries', () => {
 		const mockResponse: ICountry[] = [];
 
 		service.getCountries().subscribe((countries) => {

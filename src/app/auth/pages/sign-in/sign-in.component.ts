@@ -10,6 +10,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ConstantsUtil } from '@utils/library/constants.util';
 import { AuthService } from '@shared/services/auth.service';
 import { RoutesUtils } from '@utils/library/routes.util';
+import { LoaderComponent } from '../../components/loader/loader.component';
 
 @Component({
 	selector: 'gac-sign-in',
@@ -22,7 +23,8 @@ import { RoutesUtils } from '@utils/library/routes.util';
 		MatInputModule,
 		ReactiveFormsModule,
 		RouterLink,
-		MatSnackBarModule
+		MatSnackBarModule,
+		LoaderComponent
 	],
 	templateUrl: './sign-in.component.html',
 	styleUrls: ['./sign-in.component.scss']
@@ -33,6 +35,7 @@ export class SignInComponent implements OnInit {
 	private readonly router: Router = inject(Router);
 	form!: FormGroup;
 	hide = true;
+	isLoading = false;
 
 	ngOnInit(): void {
 		this.form = this.fb.group({
@@ -47,11 +50,17 @@ export class SignInComponent implements OnInit {
 			return;
 		}
 		const { email, password } = this.form.value;
+		this.isLoading = true;
 		this.authService.signIn(email, password).subscribe({
 			next: (value) => {
 				if (value) {
+					this.isLoading = false;
 					this.router.navigate([RoutesUtils.DASHBOARD]).then();
 				}
+			},
+			error: (err) => {
+				console.log(err);
+				this.isLoading = false;
 			}
 		});
 	}
