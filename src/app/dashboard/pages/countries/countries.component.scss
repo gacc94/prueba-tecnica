@@ -8,7 +8,12 @@
 	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 	gap: 1.25rem;
 }
-
+mat-card {
+	position: relative;
+}
+figure {
+	position: relative;
+}
 .card {
 	overflow: hidden;
 	border-radius: 0.625rem;
@@ -60,6 +65,14 @@ mat-card-header {
 	border-radius: 50%;
 	animation: rotationBack 1s linear infinite;
 	transform-origin: center center;
+}
+
+.button-scroll {
+	background-color: #262323;
+	position: fixed;
+	bottom: 1rem;
+	right: 1.25rem;
+	z-index: 5;
 }
 
 @keyframes rotation {

@@ -10,6 +10,8 @@ import { getAuth, provideAuth } from '@angular/fire/auth';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { environment } from '@environments/environment';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { IMAGE_LOADER, ImageLoaderConfig } from '@angular/common';
 
 // if (environment.production) {
 // 	enableProdMode();
@@ -26,8 +28,15 @@ export const appConfig: ApplicationConfig = {
 			MatSnackBarModule,
 			BrowserAnimationsModule,
 			BrowserModule,
-			HttpClientModule
+			HttpClientModule,
+			InfiniteScrollModule
 		),
 		provideAnimations()
+		// {
+		// 	provide: IMAGE_LOADER,
+		// 	useValue: (config: ImageLoaderConfig) => {
+		// 		return `https://flagcdn.com/${config.src}`;
+		// 	}
+		// }
 	]
 };

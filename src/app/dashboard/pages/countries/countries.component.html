@@ -1,8 +1,18 @@
 <ng-container *ngIf="countries.length > 0; else templateDiv">
+	<div infinite-scroll (scrolled)="onScrollDown()">xd-</div>
+	<button
+		*ngIf="isVisibleButton"
+		(click)="onScrollTop()"
+		mat-icon-button
+		color="primary"
+		class="mat-elevation-z10 button-scroll"
+	>
+		<mat-icon fontIcon="pan_tool_alt"></mat-icon>
+	</button>
 	<div class="country-grid">
 		<mat-card class="card" *ngFor="let country of countries; let i = index">
 			<mat-card-header>
-				<img mat-card-avatar [src]="country.flags.svg" [alt]="country.flags.alt" loading="lazy" fill />
+				<!--				<img mat-card-avatar [ngSrc]="country.flags.svg" [alt]="country.flags.alt" loading="lazy" fill="" />-->
 
 				<mat-card-title>{{ country.name.common }}</mat-card-title>
 				<mat-card-subtitle>{{ country.capital }}</mat-card-subtitle>
@@ -10,7 +20,7 @@
 			<!--        <img  class="img-loader" mat-card-md-image [alt]="country.flags.alt"  fill-->
 			<!--             ngSrc="{{country.flags.svg}}" >-->
 
-			<img mat-card-image [src]="country.flags.svg" [alt]="country.flags.alt" loading="lazy" fill />
+			<img mat-card-image [ngSrc]="country.flags.svg" loading="lazy" [alt]="country.flags.alt" fill="" />
 			<mat-card-content>
 				<p>The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan. A small</p>
 			</mat-card-content>
